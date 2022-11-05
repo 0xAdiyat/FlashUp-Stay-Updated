@@ -1,4 +1,4 @@
-# flash_up
+# FlashUp: Stay Updated
 
 A new Flutter project.
 
