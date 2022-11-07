@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'app_styles.dart';
 import 'size_config.dart';
 
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                 height: 51,
                 width: 51,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(kBorderRadius),
                     color: kLightBlue,
                     image: const DecorationImage(
                         image: NetworkImage(
@@ -71,6 +72,55 @@ class HomeScreen extends StatelessWidget {
                 ],
               )
             ],
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(kBorderRadius),
+              color: kWhite,
+              boxShadow: [
+                BoxShadow(
+                    color: kDarkBlue.withOpacity(0.051),
+                    offset: const Offset(0.0, 3.0),
+                    blurRadius: 24.0,
+                    spreadRadius: 0.0)
+              ],
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    style: kPoppinsRegular.copyWith(
+                        color: kBlue,
+                        fontSize: SizeConfig.screenSizeHorizontal! * 3),
+                    controller: TextEditingController(),
+                    decoration: InputDecoration(
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 13),
+                      hintText: 'Search for article...',
+                      border: kBorder,
+                      errorBorder: kBorder,
+                      focusedBorder: kBorder,
+                      focusedErrorBorder: kBorder,
+                      hintStyle: kPoppinsRegular.copyWith(
+                        color: kLightGrey,
+                        fontSize: SizeConfig.screenSizeHorizontal! * 3,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(kBorderRadius),
+                      color: kBlue),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset("assets/search_icon.svg")),
+                )
+              ],
+            ),
           )
         ],
       ),
