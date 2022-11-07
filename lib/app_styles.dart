@@ -14,9 +14,6 @@ const Color kLighterBlue = Color(0xffc1d4f9);
 
 const Color kDarkBlue = Color(0xff19202d);
 
-
-
-
 final kPoppinsBold = GoogleFonts.poppins(
   color: kDarkBlue,
   fontWeight: FontWeight.w700,
