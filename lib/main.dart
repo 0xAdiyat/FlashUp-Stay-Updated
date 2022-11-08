@@ -346,12 +346,17 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Container(
                       width: 70,
+                      height: 70,
+                      padding: const EdgeInsets.all(22),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(kBorderRadius),
                         image: const DecorationImage(
                             image: NetworkImage(
                                 "https://images.unsplash.com/photo-1503756234508-e32369269deb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2VhfGVufDB8fDB8fA%3D%3D&w=1000&q=80"),
                             fit: BoxFit.cover),
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/play_icon.svg',
                       ),
                     ),
                     const SizedBox(
