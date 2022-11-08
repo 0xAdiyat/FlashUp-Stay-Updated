@@ -16,17 +16,54 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: kLightWhite,
-        body: HomeScreen(),
-        
+        body: const HomeScreen(),
+        bottomNavigationBar: BottomNavigationBar(
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: kWhite,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: selectedIndex == 0
+                    ? SvgPicture.asset('assets/home_selected_icon.svg')
+                    : SvgPicture.asset('assets/home_unselected_icon.svg'),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: selectedIndex == 1
+                    ? SvgPicture.asset('assets/bookmark_selected_icon.svg')
+                    : SvgPicture.asset('assets/bookmark_unselected_icon.svg'),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: selectedIndex == 2
+                    ? SvgPicture.asset('assets/notification_selected_icon.svg')
+                    : SvgPicture.asset(
+                        'assets/notification_unselected_icon.svg'),
+                label: ''),
+            BottomNavigationBarItem(
+                icon: selectedIndex == 3
+                    ? SvgPicture.asset('assets/profile_selected_icon.svg')
+                    : SvgPicture.asset('assets/profile_unselected_icon.svg'),
+                label: ''),
+          ],
+          currentIndex: selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }
