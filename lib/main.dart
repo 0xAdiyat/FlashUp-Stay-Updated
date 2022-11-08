@@ -26,6 +26,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: kLightWhite,
         body: HomeScreen(),
+        
       ),
     );
   }
@@ -286,12 +287,74 @@ class HomeScreen extends StatelessWidget {
             //   return Container();
             // }),
             child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Container(
-                      padding: const EdgeInsets.all(9),
-                      margin: const EdgeInsets.only(right: 20),
-                    )),
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => Container(
+                padding: const EdgeInsets.all(9),
+                margin: const EdgeInsets.only(right: 20),
+                width: 200,
+                height: 88,
+                decoration: BoxDecoration(
+                  color: kWhite,
+                  borderRadius: BorderRadius.circular(kBorderRadius),
+                  boxShadow: [
+                    BoxShadow(
+                        color: kDarkBlue.withOpacity(0.051),
+                        offset: const Offset(0.0, 3.0),
+                        blurRadius: 24.0,
+                        spreadRadius: 0.0)
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 70,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(kBorderRadius),
+                        image: const DecorationImage(
+                            image: NetworkImage(
+                                "https://images.unsplash.com/photo-1503756234508-e32369269deb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2VhfGVufDB8fDB8fA%3D%3D&w=1000&q=80"),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    Flexible(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Top Trending Beach in 2022",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: kPoppinsSemiBold.copyWith(
+                              fontSize: SizeConfig.screenSizeHorizontal! * 3.5),
+                        ),
+                        const SizedBox(
+                          height: 1.5,
+                        ),
+                        Row(
+                          children: [
+                            SvgPicture.asset('assets/eye_icon.svg'),
+                            const SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              '15,999',
+                              style: kPoppinsMedium.copyWith(
+                                  color: kGrey,
+                                  fontSize:
+                                      SizeConfig.screenSizeHorizontal! * 3),
+                            )
+                          ],
+                        )
+                      ],
+                    ))
+                  ],
+                ),
+              ),
+            ),
           )
         ],
       ),
